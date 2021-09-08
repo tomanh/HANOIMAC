@@ -1,5 +1,5 @@
 <?php
-class database{
+class DataBase{
 	protected $conn = null;
 	protected $host = '127.0.0.1';
 	protected $user = 'root';
@@ -7,72 +7,76 @@ class database{
 	protected $name = 'test';
 
 	public function __construct()
-	{$this->connect();}
+		{
+			$this->connect();
+		}
 
-	public function connect(){
+	public function connectDataBase(){
 		$this->conn = new mysqli($this->host, $this->user, $this->pass, $this->name);
 		if (!$this->conn) {
 			echo "Kết nối thất bại";
 			exit();
 		}
 	}
-//hàm format định dạng tiền VNĐ
-	public function currency_format($number, $suffix='') {
-	        if (!empty($number)) {
-	            return number_format($number, 0, ',', '.') . "{$suffix}";
-	        }
+
+	public function currencyFormat($number, $suffix='') {
+	    if (!empty($number)) {
+	    	return number_format($number, 0, ',', '.') . "{$suffix}";
 	    }
-//hàm get
-	public function get ($table, $condition=array()){ 
-		$sql = "SELECT * FROM $table";
-	if (!empty($condition)) {
-		$sql.= " WHERE";
-		foreach ($condition as $key => $value) {
-		$sql.=" $key = '$value' AND";
-		}
-		$sql= trim($sql, "AND");
 	}
+
+	public function getProduct ($table, $condition=array()){
+		$sql = "SELECT * FROM $table";
+		if (!empty($condition)) {
+			$sql.= " WHERE";
+			foreach ($condition as $key => $value) {
+			$sql.=" $key = '$value' AND";
+			}
+			$sql= trim($sql, "AND");
+		}
 		$query = mysqli_query($this->conn, $sql);
 		$result = array();
-	if ($query){
-		while($row = mysqli_fetch_assoc($query)){
-			$result[] = $row;
-		}
+		if ($query){
+			while($row = mysqli_fetch_assoc($query)){
+				$result[] = $row;
+			}
 		}
 		return $result;		
 	}
 
-	public function get2 ($table, $column, $id){ 
+	public function getProduct2 ($table, $column, $id){ 
 		$sql = "SELECT * FROM $table";
-	if (!empty($column)||!empty($id)) {
-		$sql.= " WHERE $column=$id";
-	}
+		if (!empty($column)||!empty($id)) {
+			$sql.= " WHERE $column=$id";
+		}
 		$query = mysqli_query($this->conn, $sql);
 		$result = array();
-	if ($query){
-		while($row = mysqli_fetch_assoc($query)){
-			$result[] = $row;
+		if ($query){
+			while($row = mysqli_fetch_assoc($query)){
+				$result[] = $row;
+			}
 		}
-		}
+
 		return $result;	
 	}
 
-	public function get3 ($table, $condition=array()){ 
+	public function getProduct3 ($table, $condition=array()){
 		$sql = "SELECT * FROM $table";
-	if (!empty($condition)) {
-		$sql.= " WHERE";
-		foreach ($condition as $key => $value) {
-		$sql.=" $value AND";
+		if (!empty($condition)) {
+			$sql.= " WHERE";
+			foreach ($condition as $key => $value) {
+				$sql.=" $value AND";
+			}
+			$sql= trim($sql, "AND");
 		}
-		$sql= trim($sql, "AND");
-	}
 		$query = mysqli_query($this->conn, $sql);
 		$result = array();
-	if ($query){
-		while($row = mysqli_fetch_assoc($query)){
-			$result[] = $row;
+		if ($query){
+			while($row = mysqli_fetch_assoc($query)){
+				$result[] = $row;
+			}
 		}
-		}
+
 		return $result;	
 }
 	
@@ -83,68 +87,42 @@ class database{
 		$query=mysqli_query($this->conn, $sql);
 		$result = array();
 		if ($query) {
-			while ($row=mysqli_fetch_assoc($query))
+			while ($row=mysqli_fetch_assoc($query)){
 				$result[] = $row;{
 			}
-			return $result;
-		
-}
-}
+
+			return $result;		
+			}
+		}
 
 
 	public function insert($table,$data=array())
 		{
 			$keys = array_keys($data);
-
 			$fields =  implode(",", $keys);
+			$valueStr ='';
 
-			$value_str ='';
 			foreach ($data as $key => $value) {
 				$value_str	 .="'$value',"; 
 			}
-
-			$value_str = trim($value_str, ",");
-
+			$valueStr = trim($value_str, ",");
 			$sql = "INSERT INTO $table ($fields) VALUES ($value_str)";
-
 			$query = mysqli_query($this->conn,$sql);
 
 			return $query;
 		}
 
-
-
-	public function insert2($table,$data=array())
-		{   
-			$sql = "INSERT INTO $table VALUES (";
-			foreach ($data as $key => $value) {
-			$sql.="'$value',";
-		}
-	
-			$sql = trim($sql, ",");
-			$sql.=")";
-			$query = mysqli_query($this->conn,$sql);
-
-			return $query;
-			return $sql;
-		}
-
-
-	public function update($table,$data=array(),$condition=array())
-		{	
+	public function update($table,$data=array(),$condition=array()){	
 			$str = '';
 			foreach ($data as $key => $value) {
 				$str .="$key = '$value',"; 
 			}
-
 			$str = trim($str,",");
-
 			$sql = "UPDATE $table SET $str WHERE ";
 			foreach ($condition as $key => $value) {
 				$sql.= "$key = '$value' AND";
 			}
 			$sql = trim($sql,'AND');
-
 			$query = mysqli_query($this->conn,$sql);
 
 			return $query;
@@ -152,15 +130,13 @@ class database{
 
 	public function delete($table,$condition=array())
 		{
-
 			$sql = " DELETE FROM $table WHERE ";
-
 			foreach ($condition as $key => $value) {
 				$sql.= "$key = '$value' AND";
 			}
 			$sql = trim($sql,'AND');
-
 			$query = mysqli_query($this->conn,$sql);
+
 			return $query;
 		}
 }
