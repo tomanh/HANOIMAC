@@ -4,7 +4,7 @@ class DataBase{
 	protected $host = '127.0.0.1';
 	protected $user = 'root';
     protected $pass = '';
-    protected $name = 'test';
+	protected $name = 'test';
 
 	public function __construct()
 	{
