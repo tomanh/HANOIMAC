@@ -1,9 +1,9 @@
 <?php
 class DataBase{
-    protected $conn = null;
+	protected $conn = null;
 	protected $host = '127.0.0.1';
 	protected $user = 'root';
-    protected $pass = '';
+	protected $pass = '';
 	protected $name = 'test';
 
 	public function __construct()
@@ -22,9 +22,9 @@ class DataBase{
 
 	public function currencyFormat($number, $suffix='')
 	{
-	    if (!empty($number)) {
-	    	return number_format($number, 0, ',', '.') . "{$suffix}";
-	    }
+		if (!empty($number)) {
+			return number_format($number, 0, ',', '.') . "{$suffix}";
+		}
 	}
 
 	public function getProduct ($table, $condition=array())
@@ -44,6 +44,7 @@ class DataBase{
 				$result[] = $row;
 			}
 		}
+
 		return $result;		
 	}
 
@@ -84,8 +85,7 @@ class DataBase{
 
 		return $result;	
 	}
-	
-//Hàm search
+
 	public function search($table,$column,$values)
 	{
 		$sql="SELECT * from $table";
@@ -100,7 +100,6 @@ class DataBase{
 			return $result;		
 			}
 	}
-
 
 	public function insert($table,$data=array())
 		{
