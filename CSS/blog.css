@@ -1,0 +1,201 @@
+*{
+	font-family: Arial;
+}
+#login{
+	line-height: 45px;
+	float: right;
+	margin-right: 50px;
+	
+}
+#login .dropdown{
+	color: white;
+	font-size: 15px;
+}
+#login .dropdown-menu a{
+	font-size: 14px;
+	color: black;
+}
+
+#login .form-inline .glyphicon, #login div{
+	color: white;
+	background:  #0c1a1e;
+}
+#login input{
+	border: 0;
+	height: 30px;
+}
+#login #error i{
+	line-height: 0px;
+}
+
+#header{
+	font-size: 12px;
+	color: white;
+}
+#search{
+	background: #0c1a1e;
+	color: white;
+}
+
+
+#glyphicon1 a{
+	color: black;
+	font-size: 15px;
+	line-height: 50px;
+}
+#glyphicon1 span{
+	font-size: 28px;
+}
+.address li{
+	width: 300px;
+}
+.dropdown-menu li a{
+	font-size: 12px;
+}
+
+.glyphicon2 .glyphicon{
+	color: black;
+	font-size: 18px;
+}
+.glyphicon2 .fas, .glyphicon2 .fab{
+	color: black;
+}
+.glyphicon2 ul a{
+	color: black;
+	font-weight: bold;
+}
+.glyphicon2 ul a:hover{
+	color: #FA0F27;
+}
+#menu li a{
+	color: white;
+	font-weight: bold;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+#menu li a:hover{
+	color: #FA0F27;
+	background: none;
+}
+.item img{
+	width: 100%;
+}
+#tintuc ul li a{
+	color: #0c1a1e;
+}
+#tintuc ul li{
+	margin: 5px;
+	border-bottom: 1px solid #bbb;
+}
+#menu2{
+	height: 40px;
+	line-height: 30px;
+	border: 0;
+}
+#menu2 div p {
+	color: black;
+	font-weight: bold;
+	font-size: 18px;
+	text-align: left;
+	line-height: 40px;
+
+}
+#menu2 div ul li a, #menu2 li a {
+	color: black;
+	border: 1px solid #bbb;
+	background: #E6E6E6;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+#banner{
+	margin-bottom: 20px;
+}
+#banner a img{
+	margin-top: 20px;
+}
+.phan5{
+	background: #0c1a1e;
+	color: white;
+	font-style: normal;
+	font-size: 13px;
+	margin-top: 50px;
+}
+.phan5 div {
+	margin-top: 20px;
+	
+}
+.phan5 div p{
+	margin-top: 15px;
+}
+.phan5 div ul li a{
+	color: grey;
+}
+.phan5 div ul li{
+	margin-top: 10px;
+}
+.post{
+	color: black;
+	font-size: 18px;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content, .dropdown-content2, .dropdown-content3 {
+  display: none;
+  position: absolute;
+  padding: 0;
+}
+.dropdown-content a {
+  color: black;
+  display: block;
+  width: 100%;
+  padding: 0px;
+  padding-left: 20px;
+  margin-right: 30px;
+}
+.dropdown-content2 a {
+  color: black;
+  display: block;
+  width: 170%;
+  padding: 0px;
+  padding-left: 20px;
+  margin-right: 30px;
+}
+.dropdown-content3 a {
+  color: black;
+  display: block;
+  width: 150%;
+  padding: 0px;
+  padding-left: 20px;
+  margin-right: 30px;
+}
+
+.dropdown:hover .dropdown-content{
+	display: block;
+}
+.dropdown2:hover .dropdown-content2{
+	display: block;
+}
+.dropdown3:hover .dropdown-content3{
+	display: block;
+}
+
+.dropdown2 .dropdown-menu {
+  top: 0;
+  right: auto;
+  left: 100%;
+  margin-top: 0;
+}
+.dropdown3 .dropdown-menu {
+  top: 0;
+  right: auto;
+  left: 170%;
+  margin-top: 0;
+}
+
+.glyphicon-menu-right{
+	margin-right: 30px;
+	padding-top: 10px;
+}
