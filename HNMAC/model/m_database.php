@@ -28,7 +28,7 @@ class DataBase
 		}
 	}
 
-	public function getProduct ($table, $condition = array())
+	public function getProduct($table, $condition = array())
 	{
 		$sql = "SELECT * FROM $table";
 		if (!empty($condition)) {
@@ -49,10 +49,10 @@ class DataBase
 		return $result;		
 	}
 
-	public function getProduct2 ($table, $column, $id)
+	public function getProduct2($table, $column, $id)
 	{ 
 		$sql = "SELECT * FROM $table";
-		if (!empty($column)||!empty($id)) {
+		if (!empty($column) || !empty($id)) {
 			$sql .= " WHERE $column=$id";
 		}
 		$query = mysqli_query($this->conn, $sql);
@@ -66,13 +66,13 @@ class DataBase
 		return $result;	
 	}
 
-	public function getProduct3 ($table, $condition = array())
+	public function getProduct3($table, $condition = array())
 	{
 		$sql = "SELECT * FROM $table";
 		if (!empty($condition)) {
 			$sql .= " WHERE";
 			foreach ($condition as $key => $value) {
-				$sql .=" $value AND";
+				$sql .= " $value AND";
 			}
 			$sql = trim($sql, "AND");
 		}
@@ -129,7 +129,7 @@ class DataBase
 			foreach ($condition as $key => $value) {
 				$sql .= "$key = '$value' AND";
 			}
-			$sql = trim($sql,'AND');
+			$sql = trim($sql, 'AND');
 			$query = mysqli_query($this->conn,$sql);
 
 			return $query;
@@ -141,7 +141,7 @@ class DataBase
 			foreach ($condition as $key => $value) {
 				$sql .= "$key = '$value' AND";
 			}
-			$sql = trim($sql,'AND');
+			$sql = trim($sql, 'AND');
 			$query = mysqli_query($this->conn,$sql);
 
 			return $query;
