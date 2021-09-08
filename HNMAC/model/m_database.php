@@ -3,8 +3,8 @@ class DataBase{
     protected $conn = null;
 	protected $host = '127.0.0.1';
 	protected $user = 'root';
-	protected $pass = '';
-	protected $name = 'test';
+    protected $pass = '';
+    protected $name = 'test';
 
 	public function __construct()
 	{
