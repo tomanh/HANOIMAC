@@ -14,7 +14,7 @@ class Employee
      
    public function getID()
    {
-      echo "id: $this->id";
+      return $this->id;
    }
 
    public function setFullName($fullName)
@@ -24,7 +24,7 @@ class Employee
      
    public function getFullName()
    {
-      echo "Họ tên: $this->fullName";
+      return $this->fullName;
    }
 
    public function setBirthDay($birthDay)
@@ -34,7 +34,7 @@ class Employee
      
    public function getBirthDay()
    {
-      echo "Ngày sinh: $this->birthDay";
+      return $this->birthDay;
    }
 
    public function setPhone($phone)
@@ -44,7 +44,7 @@ class Employee
      
    public function getPhone()
    {
-      echo "Số điện thoại: $this->phone";
+      return $this->phone;
    }
 
    public function setEmail($email)
@@ -54,7 +54,16 @@ class Employee
      
    public function getEmail()
    {
-      echo "Email: $this->email";
+      return $this->email;
+   }
+
+   public function showInfo()
+   {
+      echo "$this->id";
+      echo "<br>$this->fullName";
+      echo "<br>$this->birthDay";
+      echo "<br>$this->phone";
+      echo "<br>$this->email";
    }
 }
 
@@ -70,7 +79,7 @@ class Experience extends Employee
      
    public function getExpInYear()
    {
-      echo "Số năm kinh nghiệm: $this->expInYear";
+      return $this->expInYear;
    }
 
    public function setProSkill($proSkill)
@@ -80,7 +89,14 @@ class Experience extends Employee
      
    public function getProSkill()
    {
-      echo "Kỹ năng chuyên môn: $this->proSkill";
+      return $this->proSkill;
+   }
+
+   public function showInfo()
+   {
+      Parent::showInfo();
+      echo "<br>$this->expInYear";
+      echo "<br>$this->proSkill";
    }
 }
 
@@ -97,7 +113,7 @@ class Fresher extends Employee
      
    public function getGraduationDate()
    {
-      echo "Thời gian tốt nghiệp: $this->graduationDate";
+      return $this->graduationDate;
    }
 
    public function setGraduationRank($graduationRank)
@@ -107,7 +123,7 @@ class Fresher extends Employee
      
    public function getGraduationRank()
    {
-      echo "Xếp loại tốt nghiệp: $this->graduationRank";
+      return $this->graduationRank;
    }
 
    public function setEducationr($education)
@@ -117,7 +133,15 @@ class Fresher extends Employee
      
    public function getEducation()
    {
-      echo "Trường tốt nghiệp: $this->education";
+      return $this->education;
+   }
+
+   public function showInfo()
+   {
+      Parent::showInfo();
+      echo "<br>$this->graduationDate";
+      echo "<br>$this->graduationRank";
+      echo "<br>$this->education";
    }
 }
 
@@ -134,7 +158,7 @@ class Intern extends Employee
      
    public function getMajors()
    {
-      echo "Chuyên ngành đang học: $this->majors";
+      return $this->majors;
    }
 
    public function setSemester($semester)
@@ -144,7 +168,7 @@ class Intern extends Employee
      
    public function getSemester()
    {
-      echo "Học kì đang học : $this->semester";
+     return $this->semester;
    }
 
    public function setUniversityName($universityName)
@@ -154,13 +178,26 @@ class Intern extends Employee
      
    public function getUniversityName()
    {
-      echo "Tên trường đang học: $this->universityName";
+      return $this->universityName;
+   }
+
+   public function showInfo()
+   {
+      Parent::showInfo();
+      echo "<br>$this->majors";
+      echo "<br>$this->semester";
+      echo "<br>$this->universityName";
    }
 }
 
 $intern = new Intern;
-
-$intern->getUniversityName('HaNoi-Aptech');
-
-$intern->getUniversityName();
+$intern->setID(1);
+$intern->setFullName('Tô Văn Mạnh');
+$intern->setBirthDay('27/08/1998');
+$intern->setPhone('0974xxxxxx');
+$intern->setEmail('manhtv@smartosc.com');
+$intern->setMajors('Lập Trình PHP');
+$intern->setSemester('Học kỳ 1');
+$intern->setUniversityName('HaNoi-Aptech');
+$intern->showInfo();
 ?>
